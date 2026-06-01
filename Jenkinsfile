@@ -4,7 +4,14 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                echo 'Build #3'
+                echo 'Build Success'
+            }
+        }
+
+        stage('Save File') {
+            steps {
+                writeFile file: 'result.txt', text: 'Build Success'
+                sh 'cat result.txt'
             }
         }
     }
